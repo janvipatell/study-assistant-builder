@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Create Study Plan - AI Study Pal{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-calendar-alt me-2"></i>Create Your Study Plan
+                </div>
+                <div class="card-body">
+                    <p class="text-muted mb-4">Fill in the details below and our AI will generate a personalized study plan for you.</p>
+                    
+                    <form method="POST" action="/study-plan">
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <select class="form-select" id="subject" name="subject" required>
+                                <option value="">Choose a subject...</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="History">History</option>
+                                <option value="English">English</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Biology">Biology</option>
+                                <option value="Geography">Geography</option>
+                                <option value="Economics">Economics</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="hours" class="form-label">Study Hours Per Day</label>
+                            <select class="form-select" id="hours" name="hours" required>
+                                <option value="1">1 hour</option>
+                                <option value="2" selected>2 hours</option>
+                                <option value="3">3 hours</option>
+                                <option value="4">4 hours</option>
+                                <option value="5">5 hours</option>
+                                <option value="6">6 hours</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="scenario" class="form-label">Study Scenario</label>
+                            <select class="form-select" id="scenario" name="scenario" required>
+                                <option value="Exam Preparation">Exam Preparation</option>
+                                <option value="Homework Help">Homework Help</option>
+                                <option value="New Topic Learning">New Topic Learning</option>
+                                <option value="Revision">Revision</option>
+                                <option value="Project Work">Project Work</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="days" class="form-label">Number of Days</label>
+                            <select class="form-select" id="days" name="days" required>
+                                <option value="3">3 days</option>
+                                <option value="5">5 days</option>
+                                <option value="7" selected>7 days (1 week)</option>
+                                <option value="14">14 days (2 weeks)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-magic me-2"></i>Generate Study Plan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5><i class="fas fa-info-circle me-2 text-info"></i>Tips for Effective Study Plans</h5>
+                    <ul class="mb-0">
+                        <li>Be realistic about how many hours you can study each day</li>
+                        <li>Include breaks in your study sessions</li>
+                        <li>Start with shorter study periods if you're new to structured studying</li>
+                        <li>Choose the scenario that best matches your current needs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

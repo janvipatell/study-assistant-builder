@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Take a Quiz - AI Study Pal{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-question-circle me-2"></i>Generate a Quiz
+                </div>
+                <div class="card-body">
+                    <p class="text-muted mb-4">Select your subject and preferences to generate a customized quiz.</p>
+                    
+                    <form method="POST" action="/quiz">
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <select class="form-select" id="subject" name="subject" required>
+                                <option value="">Choose a subject...</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="History">History</option>
+                                <option value="English">English</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Biology">Biology</option>
+                                <option value="Geography">Geography</option>
+                                <option value="General Knowledge">General Knowledge</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="difficulty" class="form-label">Difficulty Level</label>
+                            <select class="form-select" id="difficulty" name="difficulty" required>
+                                <option value="easy">Easy</option>
+                                <option value="medium" selected>Medium</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="num_questions" class="form-label">Number of Questions</label>
+                            <select class="form-select" id="num_questions" name="num_questions" required>
+                                <option value="5" selected>5 questions</option>
+                                <option value="7">7 questions</option>
+                                <option value="10">10 questions</option>
+                            </select>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-play me-2"></i>Start Quiz
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5><i class="fas fa-lightbulb me-2 text-warning"></i>Quiz Tips</h5>
+                    <ul class="mb-0">
+                        <li>Read each question carefully before answering</li>
+                        <li>Start with easier difficulty if you're new to a subject</li>
+                        <li>Don't rush - take your time to think through each answer</li>
+                        <li>Review explanations after completing the quiz to learn from mistakes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

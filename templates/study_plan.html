@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Your Study Plan - AI Study Pal{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-10 mx-auto">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2><i class="fas fa-calendar-check me-2 text-primary"></i>{{ plan.plan_title }}</h2>
+                <a href="/download-schedule" class="btn btn-success">
+                    <i class="fas fa-download me-2"></i>Download CSV
+                </a>
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h3 class="text-primary">{{ plan.total_days }}</h3>
+                            <p class="mb-0 text-muted">Days</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h3 class="text-success">{{ plan.hours_per_day }}</h3>
+                            <p class="mb-0 text-muted">Hours/Day</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h3 class="text-info">{{ subject }}</h3>
+                            <p class="mb-0 text-muted">Subject</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-bullseye me-2"></i>Weekly Goals
+                </div>
+                <div class="card-body">
+                    <ul class="mb-0">
+                        {% for goal in plan.weekly_goals %}
+                        <li>{{ goal }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <h4 class="mb-3"><i class="fas fa-list-alt me-2"></i>Daily Schedule</h4>
+            
+            {% for day in plan.daily_schedule %}
+            <div class="card mb-3">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span><i class="fas fa-calendar-day me-2"></i>Day {{ day.day }}: {{ day.focus_topic }}</span>
+                    <span class="badge bg-light text-primary">{{ day.activities|length }} activities</span>
+                </div>
+                <div class="card-body">
+                    <div class="schedule-day">
+                        {% for activity in day.activities %}
+                        <div class="activity-item d-flex justify-content-between">
+                            <span class="text-muted">{{ activity.time }}</span>
+                            <span>{{ activity.activity }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="mt-3">
+                        <strong>Daily Goals:</strong>
+                        <ul class="mb-0 mt-2">
+                            {% for goal in day.goals %}
+                            <li>{{ goal }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% if resources %}
+            <div class="card mt-4">
+                <div class="card-header">
+                    <i class="fas fa-book me-2"></i>Recommended Resources for {{ subject }}
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        {% for resource in resources %}
+                        <div class="col-md-4 mb-2">
+                            <a href="{{ resource.url }}" target="_blank" class="btn btn-outline-primary w-100">
+                                <i class="fas fa-external-link-alt me-2"></i>{{ resource.name }}
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="text-center mt-4">
+                <a href="/study-plan" class="btn btn-primary me-2">
+                    <i class="fas fa-plus me-2"></i>Create Another Plan
+                </a>
+                <a href="/quiz" class="btn btn-success">
+                    <i class="fas fa-question-circle me-2"></i>Take a Quiz
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

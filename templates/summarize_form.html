@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Summarize Text - AI Study Pal{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-file-alt me-2"></i>Text Summarizer & Study Tips
+                </div>
+                <div class="card-body">
+                    <p class="text-muted mb-4">Paste your study material below to get a summary, key points, and personalized study tips.</p>
+                    
+                    {% if error %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                    {% endif %}
+                    
+                    <form method="POST" action="/summarize">
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Related Subject</label>
+                            <select class="form-select" id="subject" name="subject">
+                                <option value="General">General</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="History">History</option>
+                                <option value="English">English</option>
+                                <option value="Computer Science">Computer Science</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="text" class="form-label">Text to Summarize</label>
+                            <textarea class="form-control" id="text" name="text" rows="10" 
+                                      placeholder="Paste your study material here (articles, notes, textbook content, etc.)..." 
+                                      required></textarea>
+                            <div class="form-text">Enter at least 50 words for best results.</div>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-magic me-2"></i>Summarize & Generate Tips
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5><i class="fas fa-info-circle me-2 text-info"></i>What You'll Get</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6><i class="fas fa-compress-alt me-2 text-primary"></i>Summary</h6>
+                            <p class="small text-muted">A condensed version of your text highlighting main ideas.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6><i class="fas fa-key me-2 text-success"></i>Keywords</h6>
+                            <p class="small text-muted">Important terms extracted using NLP techniques.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6><i class="fas fa-lightbulb me-2 text-warning"></i>Study Tips</h6>
+                            <p class="small text-muted">Personalized tips based on your content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

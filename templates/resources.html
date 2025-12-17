@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Resources & Statistics - AI Study Pal{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="mb-4"><i class="fas fa-book me-2 text-primary"></i>Study Resources & Analytics</h2>
+    
+    <div class="row mb-5">
+        <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-header">
+                    <i class="fas fa-chart-pie me-2"></i>Study Distribution
+                </div>
+                <div class="card-body text-center">
+                    {% if chart %}
+                    <img src="data:image/png;base64,{{ chart }}" alt="Subject Distribution Chart" class="img-fluid">
+                    {% else %}
+                    <p class="text-muted">No study data available yet. Start using AI Study Pal to see your progress!</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-header">
+                    <i class="fas fa-analytics me-2"></i>Your Statistics
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-6 mb-4">
+                            <div class="stat-number">{{ stats.total_sessions or 0 }}</div>
+                            <div class="text-muted">Total Sessions</div>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <div class="stat-number">{{ stats.subjects_studied|length or 0 }}</div>
+                            <div class="text-muted">Subjects Studied</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-number">{{ "%.1f"|format(stats.avg_study_hours or 0) }}</div>
+                            <div class="text-muted">Avg Hours/Day</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-number"><i class="fas fa-star text-warning"></i></div>
+                            <div class="text-muted">Keep Going!</div>
+                        </div>
+                    </div>
+                    
+                    {% if stats.subjects_studied %}
+                    <hr>
+                    <h6>Subjects Breakdown:</h6>
+                    {% for subject, count in stats.subjects_studied.items() %}
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>{{ subject }}</span>
+                        <span class="badge bg-primary">{{ count }} sessions</span>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="mb-4"><i class="fas fa-link me-2"></i>Recommended Resources by Subject</h3>
+    
+    <div class="row">
+        {% for subject, resource_list in resources.items() %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <i class="fas fa-graduation-cap me-2"></i>{{ subject }}
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        {% for resource in resource_list %}
+                        <li class="mb-2">
+                            <a href="{{ resource.url }}" target="_blank" class="text-decoration-none">
+                                <i class="fas fa-external-link-alt me-2 text-primary"></i>{{ resource.name }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/study-plan" class="btn btn-primary me-2">
+            <i class="fas fa-calendar-alt me-2"></i>Create Study Plan
+        </a>
+        <a href="/quiz" class="btn btn-success">
+            <i class="fas fa-question-circle me-2"></i>Take a Quiz
+        </a>
+    </div>
+</div>
+{% endblock %}

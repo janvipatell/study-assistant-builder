@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}AI Study Pal - Your Personal Study Assistant{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-3">
+            <i class="fas fa-robot me-2"></i>AI Study Pal
+        </h1>
+        <p class="lead mb-4">Your intelligent study companion that helps you learn smarter, not harder.</p>
+        <a href="/study-plan" class="btn btn-light btn-lg me-2">
+            <i class="fas fa-calendar-alt me-2"></i>Create Study Plan
+        </a>
+        <a href="/quiz" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-question-circle me-2"></i>Take a Quiz
+        </a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-md-3">
+            <div class="card stat-card">
+                <div class="stat-number">{{ stats.total_sessions or 0 }}</div>
+                <div class="text-muted">Study Sessions</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stat-card">
+                <div class="stat-number">{{ stats.subjects_studied|length or 0 }}</div>
+                <div class="text-muted">Subjects Covered</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stat-card">
+                <div class="stat-number">{{ "%.1f"|format(stats.avg_study_hours or 0) }}</div>
+                <div class="text-muted">Avg. Hours/Day</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card stat-card">
+                <div class="stat-number"><i class="fas fa-star text-warning"></i></div>
+                <div class="text-muted">AI-Powered</div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-center mb-4">What Can AI Study Pal Do For You?</h2>
+    
+    <div class="row g-4 mb-5">
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 text-center p-4">
+                <div class="feature-icon blue mx-auto">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h5>Study Plans</h5>
+                <p class="text-muted">Generate personalized study schedules based on your subject, available time, and goals.</p>
+                <a href="/study-plan" class="btn btn-primary mt-auto">Create Plan</a>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 text-center p-4">
+                <div class="feature-icon green mx-auto">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <h5>Practice Quizzes</h5>
+                <p class="text-muted">Test your knowledge with AI-generated quizzes tailored to your subject and difficulty level.</p>
+                <a href="/quiz" class="btn btn-primary mt-auto">Take Quiz</a>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 text-center p-4">
+                <div class="feature-icon yellow mx-auto">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h5>Text Summarizer</h5>
+                <p class="text-muted">Condense long study materials into key points and get personalized study tips.</p>
+                <a href="/summarize" class="btn btn-primary mt-auto">Summarize</a>
+            </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 text-center p-4">
+                <div class="feature-icon cyan mx-auto">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h5>Resources</h5>
+                <p class="text-muted">Access curated study resources and track your learning progress over time.</p>
+                <a href="/resources" class="btn btn-primary mt-auto">View Resources</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-lightbulb me-2"></i>How to Get Started
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center mb-3">
+                            <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">1</div>
+                            <h6 class="mt-2">Choose a Feature</h6>
+                            <p class="small text-muted">Select Study Plan, Quiz, or Summarize based on your needs.</p>
+                        </div>
+                        <div class="col-md-4 text-center mb-3">
+                            <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">2</div>
+                            <h6 class="mt-2">Enter Your Details</h6>
+                            <p class="small text-muted">Provide subject, study hours, or text to analyze.</p>
+                        </div>
+                        <div class="col-md-4 text-center mb-3">
+                            <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">3</div>
+                            <h6 class="mt-2">Get AI Results</h6>
+                            <p class="small text-muted">Receive personalized plans, quizzes, or summaries instantly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

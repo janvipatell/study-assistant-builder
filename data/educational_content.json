@@ -1,0 +1,63 @@
+{
+  "subjects": {
+    "mathematics": {
+      "topics": ["algebra", "geometry", "calculus", "statistics", "trigonometry"],
+      "resources": [
+        {"name": "Khan Academy Math", "url": "https://www.khanacademy.org/math"},
+        {"name": "Math is Fun", "url": "https://www.mathsisfun.com"},
+        {"name": "Wolfram Alpha", "url": "https://www.wolframalpha.com"}
+      ],
+      "sample_content": "Mathematics is the study of numbers, quantities, and shapes. Key concepts include equations, functions, and geometric properties. Algebra involves solving equations and understanding variables. Geometry deals with shapes, sizes, and properties of space. Calculus explores rates of change and accumulation."
+    },
+    "science": {
+      "topics": ["physics", "chemistry", "biology", "earth science", "astronomy"],
+      "resources": [
+        {"name": "Khan Academy Science", "url": "https://www.khanacademy.org/science"},
+        {"name": "National Geographic Education", "url": "https://education.nationalgeographic.org"},
+        {"name": "Science Daily", "url": "https://www.sciencedaily.com"}
+      ],
+      "sample_content": "Science is the systematic study of the natural world through observation and experimentation. Physics examines matter and energy. Chemistry studies substances and their interactions. Biology explores living organisms. Earth science investigates our planet's systems."
+    },
+    "history": {
+      "topics": ["ancient history", "world wars", "civilizations", "modern history", "cultural history"],
+      "resources": [
+        {"name": "History Channel", "url": "https://www.history.com"},
+        {"name": "Khan Academy History", "url": "https://www.khanacademy.org/humanities/world-history"},
+        {"name": "Britannica History", "url": "https://www.britannica.com/topic-browse/History"}
+      ],
+      "sample_content": "History is the study of past events, particularly human affairs. It includes ancient civilizations, medieval periods, and modern times. Understanding history helps us learn from past mistakes and appreciate cultural development."
+    },
+    "english": {
+      "topics": ["grammar", "literature", "writing", "vocabulary", "reading comprehension"],
+      "resources": [
+        {"name": "Grammarly Blog", "url": "https://www.grammarly.com/blog"},
+        {"name": "Purdue OWL", "url": "https://owl.purdue.edu"},
+        {"name": "SparkNotes", "url": "https://www.sparknotes.com"}
+      ],
+      "sample_content": "English studies encompass language skills including reading, writing, speaking, and listening. Grammar provides the rules for proper communication. Literature explores written works and their meanings. Writing develops expression and critical thinking abilities."
+    },
+    "computer_science": {
+      "topics": ["programming", "algorithms", "data structures", "web development", "databases"],
+      "resources": [
+        {"name": "Codecademy", "url": "https://www.codecademy.com"},
+        {"name": "freeCodeCamp", "url": "https://www.freecodecamp.org"},
+        {"name": "W3Schools", "url": "https://www.w3schools.com"}
+      ],
+      "sample_content": "Computer science is the study of computation, information, and automation. Programming involves writing instructions for computers. Algorithms are step-by-step procedures for solving problems. Data structures organize and store data efficiently."
+    }
+  },
+  "study_tips_templates": [
+    "Review {keyword} concepts daily for better retention",
+    "Practice {keyword} problems to strengthen understanding",
+    "Create flashcards for {keyword} terminology",
+    "Teach {keyword} to someone else to deepen comprehension",
+    "Connect {keyword} to real-world applications"
+  ],
+  "motivational_messages": [
+    "Great job! Keep up the excellent work!",
+    "You're making amazing progress!",
+    "Every study session brings you closer to success!",
+    "Your dedication is inspiring!",
+    "You've got this! Stay focused and keep going!"
+  ]
+}
